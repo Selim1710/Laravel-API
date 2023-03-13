@@ -39,10 +39,16 @@ class SkillController extends Controller
         return 'Skill deleted';
     }
 
+    public function searchSkill($search)
+    {
+        $searchingResult = SkillResource::collection(Skill::where('name', 'like', "%$search%")->get());
+        return $searchingResult;
+    }
+
     //////////////////////// Note:  //////////////////////
     // index method:
     /*
-     * if we return Skill::all()-then user can see timestamp;
+     * if we return Skill::all()-then user can see timestamps;
      * thats why i use: SkillResource::collection(Skill::all());
     */
 
@@ -59,4 +65,5 @@ class SkillController extends Controller
     *  2. then goto body select .row paste it- {"name":"suhag", "slug":"suhag"}
     *  3. and select JSON into text
     */
+
 }
