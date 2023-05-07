@@ -22,3 +22,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/form', [HomeController::class, 'form'])->name('form');
+Route::post('/validate.form', [HomeController::class, 'store'])->name('validate.form');
